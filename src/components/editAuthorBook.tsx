@@ -1,40 +1,47 @@
-import React, {useState} from 'react';
-import logo from './logo.svg';
-import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../redux/store";
-import {booksType, bookType, deleteBookAC} from "../redux/books-reduser";
-import {Button, IconButton, Paper} from "@material-ui/core";
-import DeleteIcon from '@material-ui/icons/Close';
+import React, {ChangeEvent, useState} from 'react';
+import {useDispatch} from "react-redux";
+import {changeAuthorBookAC} from "../redux/books-reduser";
+import {TextField} from "@material-ui/core";
 import './../App.css';
 
-const stylePaperBlock={
-    width:"30vw",
-    minHeight:100,
-    paddingTop:0,
-    marginTop:40,
-    marginRight:50,
-    marginLeft:50,
-    minWidth:200,
-    marginBottom:30
 
+const styleTextField = {
+    marginBottom: 25
 }
-type PropsType={
-    nameBook:string
+
+type PropsType = {
+    authorBook: string
+    id: string
 }
 
 
-export const EditNameBook = (props:PropsType) => {
-    const dispatch=useDispatch()
+export const EditAuthorBook = (props: PropsType) => {
+    const dispatch = useDispatch()
     let [editMode, setEditMode] = useState(false);
+    let [title, setTitle] = useState(props.authorBook);
     const activateEditMode = () => {
         setEditMode(true);
     }
     const activateViewMode = () => {
+        dispatch(changeAuthorBookAC(props.id, title))
         setEditMode(false);
     }
+    const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.currentTarget.value)
+    }
     return (<>{!editMode
-            ?<h2 className={"listBook__nameBook"} onDoubleClick={activateEditMode}>{props.nameBook}</h2>
-            :<input onBlur={activateViewMode} value={props.nameBook}></input>}
-</>
+            ? <p className={"listBook__authorBook"} onDoubleClick={activateEditMode}>{props.authorBook}</p>
+            : <TextField
+                style={styleTextField}
+                fullWidth
+                autoFocus={true}
+                id="nameBookForm"
+                name="nameBookForm"
+                label="Кто автор?"
+                onChange={changeTitle}
+                onBlur={activateViewMode}
+                value={title}
+            />/*<input onBlur={activateViewMode} value={props.nameBook}></input>*/}
+        </>
     );
 }

@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {ListBook} from "./components/listBook";
+import {SimpleDialogDemo} from "./components/listForm";
+import {MessageGood} from "./components/alert";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [openAlert, setOpenAlert] = React.useState(false);
+
+    return (
+        <div>
+            <SimpleDialogDemo setOpenAlert={setOpenAlert}/>
+            <ListBook/>
+            <MessageGood openAlert={openAlert} setOpenAlert={setOpenAlert}/>
+        </div>
+    );
 }
 
 export default App;
