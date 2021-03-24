@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/BookShelf/static/css/main.5c2d0a78.chunk.css",
-    "main.js": "/BookShelf/static/js/main.1497df61.chunk.js",
-    "main.js.map": "/BookShelf/static/js/main.1497df61.chunk.js.map",
+    "main.js": "/BookShelf/static/js/main.ee1e0d56.chunk.js",
+    "main.js.map": "/BookShelf/static/js/main.ee1e0d56.chunk.js.map",
     "runtime-main.js": "/BookShelf/static/js/runtime-main.74865a81.js",
     "runtime-main.js.map": "/BookShelf/static/js/runtime-main.74865a81.js.map",
     "static/js/2.526ec79b.chunk.js": "/BookShelf/static/js/2.526ec79b.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.74865a81.js",
     "static/js/2.526ec79b.chunk.js",
     "static/css/main.5c2d0a78.chunk.css",
-    "static/js/main.1497df61.chunk.js"
+    "static/js/main.ee1e0d56.chunk.js"
   ]
 }
