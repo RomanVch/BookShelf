@@ -61,7 +61,7 @@ function SimpleDialog(props: propsType) {
         },
         validationSchema: validationSchema,
         onSubmit: (values, {resetForm}) => {
-            dispatch(addBookAC(values.nameBookForm, values.authorBookForm, img))
+            dispatch(addBookAC( values.authorBookForm,values.nameBookForm, img))
             props.setOpenAlert(true)
             resetForm()
         },
